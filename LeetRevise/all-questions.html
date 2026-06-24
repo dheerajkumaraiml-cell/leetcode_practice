@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Questions - LeetRevise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all-questions.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">LeetRevise</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="add-question.html" class="nav-link">Add Question</a>
+        <a href="revision.html" class="nav-link">Revision</a>
+        <a href="all-questions.html" class="nav-link active">All Questions</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeBtn6" class="btn-sm">Toggle Theme</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn6" class="hamburger">☰</button>
+        <div class="topbar-search">
+          <input id="topbarSearchInput" type="search" placeholder="Search problems or tags...">
+        </div>
+        <div class="topbar-actions">
+          <a class="icon" href="#">🔔</a>
+          <a class="avatar" href="profile.html">RK</a>
+        </div>
+      </header>
+
+      <main class="content all-questions-page">
+        <section class="page-header">
+          <div>
+            <h2>Question Library</h2>
+            <p class="subtitle">Browse all your saved LeetCode problems, notes, and revision history in one place.</p>
+          </div>
+        </section>
+
+        <section class="stats-cards">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Total Questions</div>
+              <div class="stat-value" id="statTotal">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Easy</div>
+              <div class="stat-value" id="statEasy">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Medium</div>
+              <div class="stat-value" id="statMedium">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Hard</div>
+              <div class="stat-value" id="statHard">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">With Notes</div>
+              <div class="stat-value" id="statNotes">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Favorites</div>
+              <div class="stat-value" id="statFavorites">0</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="toolbar-panel sticky-panel">
+          <div class="toolbar-row">
+            <div class="search-block">
+              <label for="searchInput">Search</label>
+              <div class="search-input-wrapper">
+                <input id="searchInput" type="text" placeholder="Search by problem, topic or notes...">
+                <button id="clearSearchBtn" class="icon-btn" title="Clear search">✕</button>
+              </div>
+            </div>
+
+            <div class="sort-block">
+              <label for="sortSelect">Sort By</label>
+              <select id="sortSelect">
+                <option value="dateAdded_desc">Date Added ↓</option>
+                <option value="dateAdded_asc">Date Added ↑</option>
+                <option value="lastRevisionDate_desc">Last Revision ↓</option>
+                <option value="lastRevisionDate_asc">Last Revision ↑</option>
+                <option value="difficulty_asc">Difficulty A → Z</option>
+                <option value="difficulty_desc">Difficulty Z → A</option>
+                <option value="revisionCount_desc">Revision Count ↓</option>
+                <option value="revisionCount_asc">Revision Count ↑</option>
+              </select>
+            </div>
+
+            <div class="favorites-block">
+              <label class="filter-checkbox small-checkbox">
+                <input id="favoritesOnly" type="checkbox">
+                <span class="checkbox-mark"></span>
+                <span>Show Favorites Only</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="toolbar-row filters-row">
+            <div class="filter-group-inline">
+              <label>Difficulty</label>
+              <select id="difficultyFilter">
+                <option value="All">All</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+
+            <div class="filter-group-inline">
+              <label>Revision Status</label>
+              <select id="revisionFilter">
+                <option value="All">All</option>
+                <option value="Due Today">Due Today</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Revised">Revised</option>
+                <option value="Overdue">Overdue</option>
+                <option value="Mastered">Mastered</option>
+              </select>
+            </div>
+
+            <div class="filter-group-inline">
+              <label>Topic</label>
+              <select id="topicFilter">
+                <option value="All">All</option>
+                <option value="Arrays">Arrays</option>
+                <option value="Strings">Strings</option>
+                <option value="Trees">Trees</option>
+                <option value="Graphs">Graphs</option>
+                <option value="DP">DP</option>
+                <option value="Greedy">Greedy</option>
+                <option value="Heap">Heap</option>
+                <option value="Stack">Stack</option>
+                <option value="Queue">Queue</option>
+                <option value="Binary Search">Binary Search</option>
+              </select>
+            </div>
+
+            <div class="filter-group-inline date-range-group">
+              <label>Date Added</label>
+              <div class="date-input-row">
+                <input id="dateFrom" type="date">
+                <span>to</span>
+                <input id="dateTo" type="date">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="table-panel">
+          <div class="bulk-actions-bar">
+            <label class="filter-checkbox small-checkbox">
+              <input id="selectAll" type="checkbox">
+              <span class="checkbox-mark"></span>
+              <span>Select All</span>
+            </label>
+            <div class="bulk-actions-buttons">
+              <button id="deleteSelectedBtn" class="btn btn-sm">Delete Selected</button>
+              <button id="markRevisedBtn" class="btn btn-sm">Mark as Revised</button>
+              <button id="addTagBtn" class="btn btn-sm">Add Tag</button>
+              <div class="export-group">
+                <button id="exportCsvBtn" class="btn btn-sm">Export CSV</button>
+                <button id="exportExcelBtn" class="btn btn-sm">Export Excel</button>
+                <button id="exportPdfBtn" class="btn btn-sm">Export PDF</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-summary">
+            <span id="resultCount">0 questions shown</span>
+            <span id="pageInfo">Page 1 of 1</span>
+          </div>
+
+          <div class="table-container">
+            <table class="questions-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Problem Name</th>
+                  <th>Difficulty</th>
+                  <th>Topic</th>
+                  <th>Date Added</th>
+                  <th>Last Revision</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="questionsTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="pagination-bar">
+            <div class="per-page-control">
+              <label for="pageSizeSelect">Rows per page</label>
+              <select id="pageSizeSelect">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <div class="pagination-controls">
+              <button id="prevPageBtn" class="btn btn-sm">Previous</button>
+              <button id="nextPageBtn" class="btn btn-sm">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <div id="emptyState" class="empty-state hidden">
+          <div class="empty-icon">🗂️</div>
+          <h3>No questions found</h3>
+          <p>Try adding questions or relaxing your filters to see your full library.</p>
+          <a href="add-question.html" class="btn btn-primary">Add a Question</a>
+        </div>
+      </main>
+
+      <footer class="footer footer-lean">© 2026 LeetRevise</footer>
+    </div>
+  </div>
+
+  <div id="revisionHistoryModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Revision History</h3>
+        <button id="closeRevisionModalBtn" class="icon-btn close-btn">✕</button>
+      </div>
+      <div class="modal-body" id="revisionHistoryBody"></div>
+      <div class="modal-actions">
+        <button id="closeRevisionModalAction" class="btn btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editingModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-card modal-card-large">
+      <div class="modal-header">
+        <h3>Edit Question</h3>
+        <button id="closeEditModalBtn" class="icon-btn close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="editQuestionForm" class="edit-form">
+          <div class="form-grid-2">
+            <label>Problem Name<input id="editTitle" name="title" type="text"></label>
+            <label>LeetCode Link<input id="editLink" name="link" type="url"></label>
+            <label>Difficulty<select id="editDifficulty" name="difficulty"><option value="Easy">Easy</option><option value="Medium">Medium</option><option value="Hard">Hard</option></select></label>
+            <label>Topics<input id="editTopics" name="topics" type="text"></label>
+            <label>Time Complexity<input id="editTimeComplexity" name="timeComplexity" type="text"></label>
+            <label>Space Complexity<input id="editSpaceComplexity" name="spaceComplexity" type="text"></label>
+            <label>Date Added<input id="editDateAdded" name="dateAdded" type="date"></label>
+            <label>Last Revision<input id="editLastRevisionDate" name="lastRevisionDate" type="date"></label>
+          </div>
+          <label>Notes<textarea id="editNotes" name="notes" rows="4"></textarea></label>
+          <label>Approach<textarea id="editApproach" name="approach" rows="3"></textarea></label>
+          <label>Solution<textarea id="editSolution" name="solution" rows="3"></textarea></label>
+          <div class="modal-actions gap">
+            <button type="button" id="cancelEditBtn" class="btn btn-outline">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Question</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/all-questions.js"></script>
+</body>
+</html>

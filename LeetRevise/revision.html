@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revision - LeetRevise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/revision.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">LeetRevise</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="add-question.html" class="nav-link">Add Question</a>
+        <a href="revision.html" class="nav-link active">Revision</a>
+        <a href="all-questions.html" class="nav-link">All Questions</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeBtn4" class="btn-sm">Toggle Theme</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn4" class="hamburger">☰</button>
+        <div class="topbar-search">
+          <input type="search" placeholder="Search problems or tags...">
+        </div>
+        <div class="topbar-actions">
+          <a class="icon" href="#">🔔</a>
+          <a class="avatar" href="profile.html">RK</a>
+        </div>
+      </header>
+
+      <main class="content revision">
+        <div class="revision-header">
+          <div class="header-info">
+            <h2>Today's Revision</h2>
+            <p class="subtitle" id="revisionDate">Loading...</p>
+          </div>
+          <div class="header-stats">
+            <div class="stat-badge">
+              <span class="stat-count" id="totalCount">0</span>
+              <span class="stat-label">Total Due</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-count" id="remainingCount">0</span>
+              <span class="stat-label">Remaining</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-count" id="completedCount">0</span>
+              <span class="stat-label">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="revisionContainer" class="revision-container">
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading revision questions...</p>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <div class="empty-icon">✓</div>
+          <h3>No revision due today!</h3>
+          <p>Great job! You've completed all your revisions for today.</p>
+          <a href="add-question.html" class="btn btn-primary">Add New Question</a>
+        </div>
+
+        <div id="completedState" class="completed-state hidden">
+          <div class="completed-icon">🎉</div>
+          <h3>All revisions completed!</h3>
+          <p>Excellent work! You've finished all revisions for today.</p>
+          <a href="dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+        </div>
+      </main>
+
+      <footer class="footer">© 2026 LeetRevise</footer>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/revision.js"></script>
+</body>
+</html>

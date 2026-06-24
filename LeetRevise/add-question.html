@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Question - LeetRevise</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">LeetRevise</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="add-question.html" class="nav-link active">Add Question</a>
+        <a href="revision.html" class="nav-link">Revision</a>
+        <a href="all-questions.html" class="nav-link">All Questions</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeBtn3" class="btn-sm">Toggle Theme</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn3" class="hamburger">☰</button>
+        <div class="topbar-search">
+          <input type="search" placeholder="Search problems or tags...">
+        </div>
+        <div class="topbar-actions">
+          <a class="icon" href="#">🔔</a>
+          <a class="avatar" href="profile.html">RK</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="add-question-header">
+          <h2>Add New Question</h2>
+          <p class="subtitle">Track your LeetCode progress and prepare for interviews</p>
+        </div>
+
+        <form class="form-card form-container" id="addQuestionForm">
+          <!-- Basic Information Section -->
+          <fieldset class="form-section">
+            <legend>📋 Basic Information</legend>
+            
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="title">Question Title *</label>
+                <input 
+                  id="title"
+                  name="title" 
+                  type="text"
+                  placeholder="e.g., Two Sum, Longest Substring Without Repeating Characters"
+                  required
+                >
+              </div>
+
+              <div class="form-group full-width">
+                <label for="link">LeetCode URL</label>
+                <input 
+                  id="link"
+                  name="link" 
+                  type="url" 
+                  placeholder="https://leetcode.com/problems/..."
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="difficulty">Difficulty *</label>
+                <select id="difficulty" name="difficulty" required>
+                  <option value="">Select difficulty</option>
+                  <option value="Easy">🟢 Easy</option>
+                  <option value="Medium">🟡 Medium</option>
+                  <option value="Hard">🔴 Hard</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="solvedDate">Solved Date</label>
+                <input 
+                  id="solvedDate"
+                  name="solvedDate" 
+                  type="date"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Problem Details Section -->
+          <fieldset class="form-section">
+            <legend>📚 Problem Details</legend>
+            
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="topics">Topics / Tags</label>
+                <input 
+                  id="topics"
+                  name="topics" 
+                  type="text"
+                  placeholder="e.g., Array, Hash Map, Two Pointers, Dynamic Programming"
+                >
+                <small class="field-hint">Separate multiple topics with commas</small>
+              </div>
+
+              <div class="form-group">
+                <label for="timeComplexity">Time Complexity</label>
+                <input 
+                  id="timeComplexity"
+                  name="timeComplexity" 
+                  type="text"
+                  placeholder="e.g., O(n), O(n log n)"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="spaceComplexity">Space Complexity</label>
+                <input 
+                  id="spaceComplexity"
+                  name="spaceComplexity" 
+                  type="text"
+                  placeholder="e.g., O(1), O(n)"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Solution Section -->
+          <fieldset class="form-section">
+            <legend>💡 Solution Details</legend>
+            
+            <div class="form-group full-width">
+              <label for="approach">Approach</label>
+              <textarea 
+                id="approach"
+                name="approach" 
+                rows="4" 
+                placeholder="Describe your approach to solving this problem. What's your strategy? What data structures do you use?"
+              ></textarea>
+              <small class="field-hint">Explain the logic and code</small>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="solution">Solution</label>
+              <textarea 
+                id="solution"
+                name="solution" 
+                rows="4" 
+                placeholder="Provide the code for your solution."
+              ></textarea>
+              <small class="field-hint">Key steps and important code snippets</small>
+            </div>
+          </fieldset>
+
+          <!-- Learning Section -->
+          <fieldset class="form-section">
+            <legend>📖 Learning & Mistakes</legend>
+            
+            <div class="form-group full-width">
+              <label for="notes">Important Notes</label>
+              <textarea 
+                id="notes"
+                name="notes" 
+                rows="4" 
+                placeholder="Any important observations, edge cases, or concepts learned."
+              ></textarea>
+              <small class="field-hint">Key insights and things to remember</small>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="mistakes">Mistakes & Lessons</label>
+              <textarea 
+                id="mistakes"
+                name="mistakes" 
+                rows="4" 
+                placeholder="What mistakes did you make? What will you do differently next time?"
+              ></textarea>
+              <small class="field-hint">Document errors to avoid them in the future</small>
+            </div>
+          </fieldset>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <span class="btn-icon">✓</span>
+              Save Question
+            </button>
+            <a href="dashboard.html" class="btn btn-outline">
+              <span class="btn-icon">✕</span>
+              Cancel
+            </a>
+          </div>
+
+          <p class="form-footer">* Required fields</p>
+        </form>
+      </main>
+
+      <footer class="footer">© 2026 LeetRevise</footer>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/add-question.js"></script>
+</body>
+</html>

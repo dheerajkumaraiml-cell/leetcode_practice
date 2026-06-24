@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - LeetRevise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">LeetRevise</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="add-question.html" class="nav-link">Add Question</a>
+        <a href="revision.html" class="nav-link">Revision</a>
+        <a href="all-questions.html" class="nav-link">All Questions</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeBtn2" class="btn-sm">Toggle Theme</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn2" class="hamburger">☰</button>
+        <div class="topbar-search">
+          <input type="search" placeholder="Search problems or tags...">
+        </div>
+        <div class="topbar-actions">
+          <a class="icon" href="#">🔔</a>
+          <a class="avatar" href="profile.html">RK</a>
+        </div>
+      </header>
+
+      <main class="content dashboard">
+        <h2>Your Dashboard</h2>
+        
+        <!-- Stats Cards Section -->
+        <div class="stats-section">
+          <div class="dashboard-grid" id="dashboardGrid">
+            <!-- Stat cards injected by js -->
+          </div>
+        </div>
+
+        <!-- XP + Badges -->
+        <section class="achievement-section">
+          <h3>XP & Badges</h3>
+          <div class="achievement-panel">
+            <div class="level-card" id="levelCard">
+              <!-- Level summary injected by JS -->
+            </div>
+            <div class="badge-grid" id="badgeGrid">
+              <!-- Badges injected by JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+          <h3>Progress & Analytics</h3>
+          <div class="charts-grid">
+            <div class="chart-container">
+              <h4>Weekly Progress</h4>
+              <canvas id="weeklyChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h4>Topic Distribution</h4>
+              <canvas id="topicChart"></canvas>
+            </div>
+            <div class="chart-container">
+              <h4>Revision Graph</h4>
+              <canvas id="revisionChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub-style Heatmap Section -->
+        <div class="heatmap-section">
+          <h3>Contribution Heatmap</h3>
+          <div id="heatmapContainer" class="heatmap-container">
+            <!-- Heatmap injected by js -->
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">© 2026 LeetRevise</footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

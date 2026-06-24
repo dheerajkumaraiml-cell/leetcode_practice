@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search - LeetRevise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">LeetRevise</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="add-question.html" class="nav-link">Add Question</a>
+        <a href="revision.html" class="nav-link">Revision</a>
+        <a href="all-questions.html" class="nav-link">All Questions</a>
+        <a href="search.html" class="nav-link active">Search</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeBtn" class="btn-sm">Toggle Theme</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="hamburger">☰</button>
+        <div class="topbar-search">
+          <input id="topbarSearchInput" type="search" placeholder="Search problems or tags...">
+        </div>
+        <div class="topbar-actions">
+          <a class="icon" href="#">🔔</a>
+          <a class="avatar" href="profile.html">RK</a>
+        </div>
+      </header>
+
+      <main class="content search-page">
+        <div class="search-header">
+          <h2>Search Questions</h2>
+          <p class="subtitle">Find and filter your LeetCode problems</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="Search by title, topic, or approach..."
+              autocomplete="off"
+            >
+            <span class="search-icon">🔍</span>
+          </div>
+          <button id="clearSearchBtn" class="btn-clear">Clear</button>
+        </div>
+
+        <div class="search-layout">
+          <!-- Filters Panel -->
+          <aside class="filters-panel">
+            <div class="filters-header">
+              <h3>Filters</h3>
+              <button id="resetFiltersBtn" class="btn-reset">Reset All</button>
+            </div>
+
+            <!-- Difficulty Filter -->
+            <div class="filter-group">
+              <h4>Difficulty</h4>
+              <div class="filter-options">
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="difficulty" value="Easy">
+                  <span class="checkbox-mark"></span>
+                  <span class="difficulty-label easy">🟢 Easy</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="difficulty" value="Medium">
+                  <span class="checkbox-mark"></span>
+                  <span class="difficulty-label medium">🟡 Medium</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="difficulty" value="Hard">
+                  <span class="checkbox-mark"></span>
+                  <span class="difficulty-label hard">🔴 Hard</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Status Filter -->
+            <div class="filter-group">
+              <h4>Status</h4>
+              <div class="filter-options">
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="status" value="Solved">
+                  <span class="checkbox-mark"></span>
+                  <span>✓ Solved</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="status" value="Attempted">
+                  <span class="checkbox-mark"></span>
+                  <span>⚠ Attempted</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" name="status" value="Unsolved">
+                  <span class="checkbox-mark"></span>
+                  <span>❌ Unsolved</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Topic Filter -->
+            <div class="filter-group">
+              <h4>Topics</h4>
+              <input 
+                type="text" 
+                id="topicSearch" 
+                class="filter-search" 
+                placeholder="Search topics..."
+              >
+              <div class="filter-options" id="topicsList">
+                <!-- Populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Bookmark Filter -->
+            <div class="filter-group">
+              <h4>Bookmark</h4>
+              <label class="filter-checkbox">
+                <input type="checkbox" id="bookmarkedOnly" name="bookmarked">
+                <span class="checkbox-mark"></span>
+                <span>⭐ Bookmarked Only</span>
+              </label>
+            </div>
+
+            <!-- Date Filter -->
+            <div class="filter-group">
+              <h4>Solved Date</h4>
+              <div class="date-filter">
+                <input 
+                  type="date" 
+                  id="dateFrom" 
+                  class="date-input" 
+                  placeholder="From"
+                >
+                <span>to</span>
+                <input 
+                  type="date" 
+                  id="dateTo" 
+                  class="date-input" 
+                  placeholder="To"
+                >
+              </div>
+            </div>
+
+            <!-- Tags Filter -->
+            <div class="filter-group">
+              <h4>Tags</h4>
+              <input 
+                type="text" 
+                id="tagsSearch" 
+                class="filter-search" 
+                placeholder="Search tags..."
+              >
+              <div class="filter-options" id="tagsList">
+                <!-- Populated by JavaScript -->
+              </div>
+            </div>
+          </aside>
+
+          <!-- Results Area -->
+          <section class="results-section">
+            <div class="results-header">
+              <h3>Results</h3>
+              <div class="result-stats">
+                <span id="resultCount">0</span> questions found
+              </div>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-controls">
+              <button class="view-btn active" data-view="list" title="List view">
+                ☰ List
+              </button>
+              <button class="view-btn" data-view="grid" title="Grid view">
+                ⊞ Grid
+              </button>
+            </div>
+
+            <!-- Results Container -->
+            <div id="resultsContainer" class="results-container">
+              <div class="empty-state">
+                <div class="empty-icon">🔍</div>
+                <p>No questions yet. Add your first question to get started!</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">© 2026 LeetRevise</footer>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

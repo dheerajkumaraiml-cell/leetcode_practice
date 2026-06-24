@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LeetRevise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">LeetRevise</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="add-question.html" class="nav-link">Add Question</a>
+        <a href="revision.html" class="nav-link">Revision</a>
+        <a href="all-questions.html" class="nav-link">All Questions</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeBtn" class="btn-sm">Toggle Theme</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="hamburger">☰</button>
+        <div class="topbar-search">
+          <input type="search" placeholder="Search problems or tags...">
+        </div>
+        <div class="topbar-actions">
+          <a class="icon" href="#">🔔</a>
+          <a class="avatar" href="profile.html">RK</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- HERO -->
+        <section class="hero hero-landing">
+          <div class="hero-inner">
+            <h1 class="fade-up">Never Forget a Solved LeetCode Problem Again</h1>
+            <p class="lead fade-up" style="--d:120ms">Track and revise coding questions using spaced repetition.</p>
+            <div class="cta fade-up" style="--d:240ms">
+              <a class="btn" href="add-question.html">Get Started</a>
+              <a class="btn outline" href="dashboard.html">Dashboard</a>
+            </div>
+          </div>
+          <div class="hero-visual fade-in" aria-hidden="true">
+            <svg width="280" height="180" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="280" height="180" rx="12" fill="rgba(255,255,255,0.02)"/>
+              <rect x="16" y="22" width="248" height="18" rx="4" fill="rgba(255,255,255,0.04)"/>
+              <rect x="16" y="52" width="200" height="12" rx="4" fill="rgba(255,255,255,0.03)"/>
+              <rect x="16" y="74" width="120" height="10" rx="4" fill="rgba(255,255,255,0.03)"/>
+            </svg>
+          </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features" id="features">
+          <h2 class="section-title">Features</h2>
+          <div class="features-grid">
+            <article class="card fade-up" style="--d:80ms">
+              <h3>Spaced Repetition</h3>
+              <p class="muted">Optimized intervals to help you retain solutions long-term.</p>
+            </article>
+            <article class="card fade-up" style="--d:160ms">
+              <h3>Tag & Search</h3>
+              <p class="muted">Organize problems by topic, difficulty, and custom tags.</p>
+            </article>
+            <article class="card fade-up" style="--d:240ms">
+              <h3>Revision Queue</h3>
+              <p class="muted">Daily focused queue to revisit problems that matter most.</p>
+            </article>
+            <article class="card fade-up" style="--d:320ms">
+              <h3>Lightweight Notes</h3>
+              <p class="muted">Attach your approach, pitfalls, and concise solutions.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-it-works">
+          <h2 class="section-title">How It Works</h2>
+          <div class="steps">
+            <div class="step fade-up" style="--d:80ms">
+              <div class="step-index">1</div>
+              <div>
+                <h4>Add problems</h4>
+                <p class="muted">Save problems you solved along with your notes and tags.</p>
+              </div>
+            </div>
+            <div class="step fade-up" style="--d:160ms">
+              <div class="step-index">2</div>
+              <div>
+                <h4>Review with spaced repetition</h4>
+                <p class="muted">LeetRevise schedules reviews so concepts stick.</p>
+              </div>
+            </div>
+            <div class="step fade-up" style="--d:240ms">
+              <div class="step-index">3</div>
+              <div>
+                <h4>Track progress</h4>
+                <p class="muted">See streaks, performance and areas to focus on.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials">
+          <h2 class="section-title">What users say</h2>
+          <div class="testimonials-grid">
+            <blockquote class="card fade-up" style="--d:80ms">“I finally stopped forgetting solutions — my interviews improved.”<cite>— Alex</cite></blockquote>
+            <blockquote class="card fade-up" style="--d:160ms">“Lightweight and focused. Revising takes 15 minutes a day.”<cite>— Priya</cite></blockquote>
+            <blockquote class="card fade-up" style="--d:240ms">“Tags and notes make retrieval so much easier.”<cite>— Sam</cite></blockquote>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+          <h2 class="section-title">FAQ</h2>
+          <details class="card fade-up" style="--d:80ms"><summary>How does spaced repetition work?</summary><p class="muted">We schedule reviews based on correctness and elapsed time to maximize retention.</p></details>
+          <details class="card fade-up" style="--d:160ms"><summary>Can I import/export problems?</summary><p class="muted">Yes — CSV import/export will be supported in the Apps Script backend.</p></details>
+          <details class="card fade-up" style="--d:240ms"><summary>Where is data stored?</summary><p class="muted">Data is stored in your Google Sheets (via Apps Script) — you control it.</p></details>
+        </section>
+
+      </main>
+
+      <footer class="footer footer-lean">
+        <div class="footer-inner">
+          <div>© 2026 LeetRevise</div>
+          <div><a href="profile.html">Profile</a> · <a href="#features">Features</a> · <a href="dashboard.html">Dashboard</a></div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
